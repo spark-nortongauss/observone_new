@@ -1,0 +1,2 @@
+import SectionTitle from '../ui/SectionTitle'; const items=['Telecom & ISP','Data Centers','Smart Buildings','Transportation','Manufacturing'];
+export default function IndustriesSection(){return <section className='mx-auto max-w-7xl px-6 py-14'><SectionTitle title='Built for Critical Infrastructure Teams'/><div className='grid md:grid-cols-5 gap-4'>{items.map(i=><div className='section-card p-4 text-center' key={i}><h3 className='font-semibold'>{i}</h3></div>)}</div></section>}

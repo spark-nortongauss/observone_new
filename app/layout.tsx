@@ -1,0 +1,3 @@
+import './globals.css'; import type { Metadata } from 'next';
+export const metadata: Metadata={title:'ObservOne | AI Operations Intelligence for Critical Infrastructure',description:'ObservOne helps telecom, network, and critical infrastructure teams detect incidents, reduce alert noise, identify root cause, and automate resolution with AI-powered observability.',keywords:['AI operations','observability platform','network monitoring','telecom monitoring','infrastructure monitoring','root cause analysis','incident automation','self-healing operations','SLA monitoring'],openGraph:{images:['/og/observone-og.png']}};
+export default function RootLayout({children}:{children:React.ReactNode}){return <html lang='en'><body>{children}</body></html>}
