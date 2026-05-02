@@ -1,0 +1,3 @@
+import MagneticButton from '../ui/MagneticButton'; import dynamic from 'next/dynamic';
+const NetworkGlobe=dynamic(()=>import('../three/NetworkGlobe'),{ssr:false});
+export default function FinalCTASection(){return <section className='mx-auto max-w-7xl px-6 py-20 grid lg:grid-cols-2 gap-8 items-center'><div><h2 className='text-4xl font-semibold'>Ready to Transform Your Operations?</h2><p className='text-gray-600 mt-4'>Book a live demo and see how ObservOne can help your team work smarter and deliver better outcomes.</p><div className='flex gap-3 mt-6'><MagneticButton label='Book a Live Technical Demo'/><MagneticButton label='See a Real Incident Replay' secondary/></div></div><NetworkGlobe/></section>}

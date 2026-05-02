@@ -1,0 +1,2 @@
+import SectionTitle from '../ui/SectionTitle';
+export default function TrustSection(){return <section className='mx-auto max-w-7xl px-6 py-14'><SectionTitle title='Trusted by Teams Worldwide'/><div className='grid grid-cols-5 gap-3 text-center text-gray-500'><div>Juniper</div><div>Cisco</div><div>AWS</div><div>Azure</div><div>VMware</div></div><p className='text-xs text-gray-500 mt-4'>Example ecosystem logos shown for visual placement. Replace with approved customer, partner, or technology logos before production.</p></section>}

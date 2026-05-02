@@ -1,0 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root{color-scheme:light}
+body{background:#fff;color:#050505}
+.section-card{@apply rounded-3xl border border-black/10 bg-white/80 backdrop-blur-sm shadow-soft}

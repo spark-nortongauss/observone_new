@@ -1,0 +1,1 @@
+export default function DashboardCard({title,value}:{title:string;value:string}){return <div className='rounded-2xl bg-[#111] p-4 border border-white/10'><p className='text-xs text-white/60'>{title}</p><p className='text-2xl font-semibold text-white mt-2'>{value}</p></div>}

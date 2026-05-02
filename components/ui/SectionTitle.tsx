@@ -1,0 +1,2 @@
+import { ReactNode } from 'react';
+export default function SectionTitle({kicker,title,subtitle}:{kicker?:string;title:string;subtitle?:ReactNode}){return <div className='mb-8 text-center'><p className='text-xs font-semibold uppercase tracking-[0.18em] text-gray-500'>{kicker}</p><h2 className='text-3xl md:text-5xl font-semibold mt-3'>{title}</h2>{subtitle&&<p className='mt-3 text-gray-600 max-w-3xl mx-auto'>{subtitle}</p>}</div>}

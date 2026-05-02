@@ -1,0 +1,3 @@
+'use client';
+import { Menu } from 'lucide-react'; import { navLinks } from '@/lib/constants'; import MagneticButton from '../ui/MagneticButton';
+export default function Header(){return <header className='sticky top-0 z-50 border-b border-black/5 bg-white/70 backdrop-blur'><div className='mx-auto max-w-7xl px-6 py-3 flex items-center justify-between'><div className='font-semibold text-xl'>ObservOne</div><nav className='hidden md:flex gap-6 text-sm'>{navLinks.map(n=><a href='#' key={n}>{n}</a>)}</nav><div className='hidden md:flex items-center gap-3'><a href='#' className='text-sm'>Log In</a><MagneticButton label='Book a Live Demo'/></div><button className='md:hidden' aria-label='Open menu'><Menu/></button></div></header>}
