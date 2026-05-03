@@ -1,6 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-:root{color-scheme:light}
-body{background:#fff;color:#050505}
-.section-card{@apply rounded-3xl border border-black/10 bg-white/80 backdrop-blur-sm shadow-soft}
+
+:root { color-scheme: light; }
+html, body { overflow-x: hidden; }
+body {
+  background: #ffffff;
+  color: #050505;
+  font-feature-settings: "ss01" 1;
+}
+
+.grid-pattern {
+  background-image: linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.mesh-bg {
+  background: radial-gradient(circle at 20% 10%, rgba(217,255,53,0.2), transparent 30%), radial-gradient(circle at 80% 80%, rgba(217,255,53,0.12), transparent 35%), linear-gradient(160deg, #0b0b0b, #111111);
+}
+.section-shell { @apply mx-auto max-w-[1280px] px-6 lg:px-10; }
+.section-pad { @apply py-12 md:py-[72px] lg:py-24; }
+.panel {
+  @apply rounded-2xl border border-[#E5E5E5] bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)];
+}
+.dark-panel {
+  @apply rounded-2xl border border-white/10 bg-[#0b0b0b] text-white;
+}

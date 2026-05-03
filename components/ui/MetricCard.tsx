@@ -1,2 +1,4 @@
 import AnimatedCounter from './AnimatedCounter';
-export default function MetricCard({value,label}:{value:string;label:string}){return <div className='section-card p-5'><div className='text-3xl font-semibold text-lime-600'><AnimatedCounter value={value}/></div><p className='text-sm mt-1'>{label}</p></div>}
+export default function MetricCard({ value, label }: { value: number; label: string }) {
+  return <div className='panel p-5'><div className='text-3xl font-semibold text-[#89a900]'><AnimatedCounter end={value} /></div><p className='mt-1 text-sm'>{label}</p></div>;
+}
