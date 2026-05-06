@@ -1,31 +1,36 @@
 'use client';
 import { useState } from 'react';
 import { Activity, AlertTriangle, Bot, TrendingUp } from 'lucide-react';
+import Reveal from '../animations/Reveal';
 
 const tabs = [
   {
     id: 'ops',
     label: 'Operations Command',
     icon: Activity,
-    description: 'Unified NOC view — topology health, active incidents, and SLA status across all infrastructure domains in a single pane.',
+    description:
+      'Unified NOC view — topology health, active incidents, and SLA status across every infrastructure domain in a single pane of glass.',
   },
   {
     id: 'intel',
     label: 'Incident Intelligence',
     icon: AlertTriangle,
-    description: 'AI-generated root cause analysis with confidence scoring, blast radius mapping, and historical incident correlation.',
+    description:
+      'Confidence-scored root cause, blast radius mapping and historical correlation — surfaced in seconds, not hours.',
   },
   {
     id: 'auto',
     label: 'Automation Center',
     icon: Bot,
-    description: 'Visual runbook builder and auto-execution engine — trigger remediation workflows based on AI decisions or manual approval.',
+    description:
+      'Visual runbook builder with policy-gated auto-execution — let AI act on what it knows, escalate everything else.',
   },
   {
     id: 'exec',
     label: 'Executive Insights',
     icon: TrendingUp,
-    description: 'Board-ready dashboards showing SLA compliance, business impact, cost of downtime, and operational efficiency trends.',
+    description:
+      'Board-ready dashboards: SLA compliance, business impact, cost of downtime avoided, operational efficiency trends.',
   },
 ];
 
@@ -227,24 +232,32 @@ export default function PlatformPreviewSection() {
   const current = tabs.find((t) => t.id === activeTab)!;
 
   return (
-    <section className="section-divider bg-[#F8F8F6]">
+    <section
+      id="preview"
+      className="section-divider bg-[#F8F8F6]"
+      aria-labelledby="preview-heading"
+    >
       <div className="section-shell section-pad">
-        {/* Header */}
-        <div className="mb-10 max-w-2xl">
-          <p className="badge mb-4">Platform Preview</p>
-          <h2 className="text-3xl font-semibold leading-[1.15] tracking-tight text-[#0a0a0a] md:text-[40px]">
-            Purpose-built for operations teams
-          </h2>
-          <p className="mt-4 text-[15px] leading-relaxed text-[#666]">
-            {current.description}
-          </p>
-        </div>
+        <Reveal stagger={0.06}>
+          <div className="mb-10 max-w-2xl">
+            <p data-reveal-child className="badge mb-4">Platform Preview</p>
+            <h2 id="preview-heading" data-reveal-child className="h-section">
+              Purpose-built for operations teams.
+            </h2>
+            <p data-reveal-child className="mt-4 text-[15px] leading-relaxed text-[#666]">
+              {current.description}
+            </p>
+          </div>
+        </Reveal>
 
         {/* Tabs */}
-        <div className="mb-4 flex flex-wrap gap-2">
+        <div className="mb-4 flex flex-wrap gap-2" role="tablist" aria-label="Platform views">
           {tabs.map(({ id, label, icon: Icon }) => (
             <button
               key={id}
+              role="tab"
+              aria-selected={activeTab === id}
+              aria-controls={`panel-${id}`}
               onClick={() => setActiveTab(id as TabId)}
               className={`flex items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-medium transition ${
                 activeTab === id
@@ -252,7 +265,7 @@ export default function PlatformPreviewSection() {
                   : 'border border-[#E4E4E0] bg-white text-[#555] hover:border-[#ccc] hover:bg-[#F4F4F2]'
               }`}
             >
-              <Icon className="h-4 w-4 opacity-70" />
+              <Icon className="h-4 w-4 opacity-70" aria-hidden />
               {label}
             </button>
           ))}
@@ -276,13 +289,19 @@ export default function PlatformPreviewSection() {
             </div>
           </div>
 
-          <div className="p-5" style={{ minHeight: '320px' }}>
+          <div
+            className="p-5"
+            style={{ minHeight: '320px' }}
+            role="tabpanel"
+            id={`panel-${activeTab}`}
+            aria-labelledby={`tab-${activeTab}`}
+          >
             {mockContent[activeTab]}
           </div>
         </div>
 
         <p className="mt-3 text-center text-xs text-[#999]">
-          Simulated UI — actual product data and layout may vary by configuration
+          Simulated UI — actual product data and layout may vary by configuration.
         </p>
       </div>
     </section>
