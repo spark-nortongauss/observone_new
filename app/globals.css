@@ -2,26 +2,104 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { color-scheme: light; }
-html, body { overflow-x: hidden; }
-body {
-  background: #ffffff;
-  color: #050505;
-  font-feature-settings: "ss01" 1;
+:root {
+  color-scheme: light;
+  --brand: #D9FF35;
+  --brand-dark: #b8d900;
+  --base: #050505;
+  --surface: #F8F8F6;
+  --border: #E4E4E0;
+  --muted: #6B7280;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  background: #ffffff;
+  color: #111111;
+  font-feature-settings: "ss01" 1, "cv01" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Subtle dot grid for light sections */
 .grid-pattern {
-  background-image: linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
-  background-size: 32px 32px;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
+
+/* Dark hero mesh */
 .mesh-bg {
-  background: radial-gradient(circle at 20% 10%, rgba(217,255,53,0.2), transparent 30%), radial-gradient(circle at 80% 80%, rgba(217,255,53,0.12), transparent 35%), linear-gradient(160deg, #0b0b0b, #111111);
+  background:
+    radial-gradient(ellipse at 15% 15%, rgba(217, 255, 53, 0.18) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 80%, rgba(217, 255, 53, 0.10) 0%, transparent 45%),
+    linear-gradient(160deg, #0a0a0a 0%, #111318 100%);
 }
-.section-shell { @apply mx-auto max-w-[1280px] px-6 lg:px-10; }
-.section-pad { @apply py-12 md:py-[72px] lg:py-24; }
+
+/* Layout utilities */
+.section-shell {
+  @apply mx-auto max-w-[1280px] px-6 lg:px-12;
+}
+
+.section-pad {
+  @apply py-16 md:py-24 lg:py-32;
+}
+
+/* Card primitives */
 .panel {
-  @apply rounded-2xl border border-[#E5E5E5] bg-white shadow-[0_12px_40px_rgba(0,0,0,0.06)];
+  @apply rounded-2xl border border-[#E4E4E0] bg-white shadow-[0_1px_3px_rgba(0,0,0,0.06),0_8px_32px_rgba(0,0,0,0.04)];
 }
+
 .dark-panel {
-  @apply rounded-2xl border border-white/10 bg-[#0b0b0b] text-white;
+  @apply rounded-2xl border border-white/10 bg-[#0a0a0a] text-white;
+}
+
+/* Tag/badge */
+.badge {
+  @apply inline-flex items-center gap-1.5 rounded-full border border-[#E4E4E0] bg-[#F8F8F6] px-3 py-1 text-xs font-medium text-[#444];
+}
+
+.badge-dark {
+  @apply inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/8 px-3 py-1 text-xs font-medium text-white/70;
+}
+
+/* Gradient text */
+.gradient-text {
+  @apply bg-gradient-to-br from-[#111] via-[#333] to-[#111] bg-clip-text text-transparent;
+}
+
+/* Subtle section divider */
+.section-divider {
+  @apply border-t border-[#E4E4E0];
+}
+
+/* Input-like elements */
+.input-base {
+  @apply rounded-xl border border-[#E4E4E0] bg-white px-4 py-2.5 text-sm outline-none ring-0 transition focus:border-[#D9FF35] focus:ring-2 focus:ring-[#D9FF35]/20;
+}
+
+/* Scrollbar (webkit) */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #ddd; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #bbb; }
+
+/* Animations */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, transparent 25%, rgba(255,255,255,0.3) 50%, transparent 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2.5s infinite;
 }
