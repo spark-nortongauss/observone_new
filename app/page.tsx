@@ -1,2 +1,33 @@
-import Header from '@/components/layout/Header';import Footer from '@/components/layout/Footer';import HeroSection from '@/components/sections/HeroSection';import PainPointsSection from '@/components/sections/PainPointsSection';import SolutionSection from '@/components/sections/SolutionSection';import ProofSection from '@/components/sections/ProofSection';import HowItWorksSection from '@/components/sections/HowItWorksSection';import PlatformPreviewSection from '@/components/sections/PlatformPreviewSection';import IndustriesSection from '@/components/sections/IndustriesSection';import ComparisonSection from '@/components/sections/ComparisonSection';import TrustSection from '@/components/sections/TrustSection';import FinalCTASection from '@/components/sections/FinalCTASection';
-export default function Page(){return <main><Header/><HeroSection/><PainPointsSection/><SolutionSection/><ProofSection/><HowItWorksSection/><PlatformPreviewSection/><IndustriesSection/><ComparisonSection/><TrustSection/><FinalCTASection/><Footer/></main>}
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
+import HeroSection from '@/components/sections/HeroSection';
+import PainPointsSection from '@/components/sections/PainPointsSection';
+import SolutionSection from '@/components/sections/SolutionSection';
+import ProofSection from '@/components/sections/ProofSection';
+import HowItWorksSection from '@/components/sections/HowItWorksSection';
+import PlatformPreviewSection from '@/components/sections/PlatformPreviewSection';
+import IndustriesSection from '@/components/sections/IndustriesSection';
+import ComparisonSection from '@/components/sections/ComparisonSection';
+import TrustSection from '@/components/sections/TrustSection';
+import FinalCTASection from '@/components/sections/FinalCTASection';
+
+export default function Page() {
+  return (
+    <>
+      <Header />
+      <main role="main">
+        <HeroSection />
+        <PainPointsSection />
+        <SolutionSection />
+        <ProofSection />
+        <HowItWorksSection />
+        <PlatformPreviewSection />
+        <IndustriesSection />
+        <ComparisonSection />
+        <TrustSection />
+        <FinalCTASection />
+      </main>
+      <Footer />
+    </>
+  );
+}

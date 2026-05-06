@@ -1,86 +1,96 @@
 import { Database, Brain, Cog, BarChart3 } from 'lucide-react';
+import Reveal from '../animations/Reveal';
 
 const pillars = [
   {
     icon: Database,
     number: '01',
-    title: 'Telemetry Ingestion',
-    description: 'Unified collection of metrics, logs, traces, and events from any source — SNMP, syslog, cloud APIs, or custom agents — normalized in real time.',
-    highlight: '500+ integrations',
+    title: 'Unified Telemetry Fabric',
+    description:
+      'Stream metrics, logs, traces and events from any source — SNMP, syslog, cloud APIs, OT protocols — and normalize them into one semantic model in real time.',
+    highlight: '500+ native integrations',
   },
   {
     icon: Brain,
     number: '02',
-    title: 'AI Intelligence',
-    description: 'Adaptive ML models correlate events across domains, identify root cause with >90% confidence, and surface actionable context to on-call engineers.',
+    title: 'AI Incident Intelligence',
+    description:
+      'Adaptive ML models learn your topology, correlate signals across domains, and surface root cause with confidence scoring — no rules to maintain.',
     highlight: '>90% root cause accuracy',
   },
   {
     icon: Cog,
     number: '03',
-    title: 'Automation Engine',
-    description: 'Codified runbooks execute auto-remediation workflows triggered by AI decisions — reducing MTTR without requiring manual intervention.',
-    highlight: '68% auto-remediation rate',
+    title: 'Closed-Loop Automation',
+    description:
+      'Codified runbooks execute remediation triggered by AI decisions — with human-in-the-loop approval, full audit, and one-click rollback.',
+    highlight: '68% auto-resolve rate',
   },
   {
     icon: BarChart3,
     number: '04',
-    title: 'Business Impact',
-    description: 'Translate technical incidents into business impact scores, SLA compliance dashboards, and executive-ready reports that justify operations investment.',
+    title: 'Business Impact Layer',
+    description:
+      'Translate every incident into SLA exposure, customer impact and dollar cost — giving leadership the operational visibility they actually want.',
     highlight: 'C-suite visibility',
   },
 ];
 
 export default function SolutionSection() {
   return (
-    <section className="section-divider bg-white">
+    <section className="section-divider bg-white" aria-labelledby="solution-heading">
       <div className="section-shell section-pad">
         <div className="grid gap-12 lg:grid-cols-[2fr_3fr] lg:gap-16 lg:items-start">
-          {/* Left: Header */}
-          <div className="lg:sticky lg:top-28">
-            <p className="badge mb-4">The Platform</p>
-            <h2 className="text-3xl font-semibold leading-[1.15] tracking-tight text-[#0a0a0a] md:text-[40px]">
-              Architecture designed for high-stakes operations
+          <Reveal stagger={0.06} className="lg:sticky lg:top-28">
+            <p data-reveal-child className="badge mb-4">The Platform</p>
+            <h2 id="solution-heading" data-reveal-child className="h-section">
+              One platform. Four layers. Built for high-stakes operations.
             </h2>
-            <p className="mt-4 text-[15px] leading-relaxed text-[#666]">
-              Four integrated layers that turn raw infrastructure noise into confident, automated operations — without ripping out existing tooling.
+            <p data-reveal-child className="mt-4 text-[15px] leading-relaxed text-[#666]">
+              Designed by operators, for operators. ObservOne integrates with the tools you already
+              run — no rip-and-replace required — and delivers measurable outcomes from week one.
             </p>
-            <div className="mt-8 rounded-2xl border border-[#E4E4E0] bg-[#F8F8F6] p-5">
-              <p className="text-xs font-medium uppercase tracking-wider text-[#999]">Deployment model</p>
+            <div data-reveal-child className="mt-8 rounded-2xl border border-[#E4E4E0] bg-[#F8F8F6] p-5">
+              <p className="eyebrow">Deployment model</p>
               <div className="mt-3 space-y-2 text-sm text-[#444]">
-                {['SaaS or private cloud deploy', 'Weeks to first value', 'No forklift of existing tools'].map((item) => (
+                {[
+                  'SaaS, private cloud or air-gapped',
+                  'Production value in 4–6 weeks',
+                  'No forklift of existing tools',
+                  'Outcome-based pricing available',
+                ].map((item) => (
                   <div key={item} className="flex items-center gap-2">
-                    <div className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#b8d900]" />
+                    <span className="h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#b8d900]" aria-hidden />
                     {item}
                   </div>
                 ))}
               </div>
             </div>
-          </div>
+          </Reveal>
 
-          {/* Right: Pillars */}
-          <div className="grid gap-4 sm:grid-cols-2">
+          <Reveal stagger={0.1} className="grid gap-4 sm:grid-cols-2">
             {pillars.map(({ icon: Icon, number, title, description, highlight }) => (
-              <div
+              <article
                 key={title}
-                className="group panel p-6 transition hover:-translate-y-0.5 hover:shadow-elevated"
+                data-reveal-child
+                className="group panel p-6 transition duration-500 hover:-translate-y-1 hover:shadow-elevated"
               >
                 <div className="mb-4 flex items-start justify-between">
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#F8F8F6] transition group-hover:bg-[#D9FF35]/15">
-                    <Icon className="h-5 w-5 text-[#444] transition group-hover:text-[#6b7c00]" />
+                    <Icon className="h-5 w-5 text-[#444] transition group-hover:text-[#6b7c00]" aria-hidden />
                   </div>
                   <span className="font-mono text-xs text-[#ccc]">{number}</span>
                 </div>
-                <div className="mb-2 h-px w-full bg-gradient-to-r from-[#D9FF35] to-transparent" />
-                <p className="mt-3 text-[15px] font-semibold text-[#111]">{title}</p>
+                <div className="mb-3 h-px w-full bg-gradient-to-r from-[#D9FF35] to-transparent" />
+                <h3 className="text-[15px] font-semibold text-[#111]">{title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-[#666]">{description}</p>
                 <div className="mt-4 inline-flex items-center gap-1.5 rounded-full bg-[#F4F4F2] px-2.5 py-1 text-[11px] font-medium text-[#555]">
-                  <span className="h-1.5 w-1.5 rounded-full bg-[#b8d900]" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#b8d900]" aria-hidden />
                   {highlight}
                 </div>
-              </div>
+              </article>
             ))}
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

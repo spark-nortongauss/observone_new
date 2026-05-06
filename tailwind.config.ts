@@ -7,19 +7,21 @@ export default {
       colors: {
         limeBrand: '#D9FF35',
         limeDark: '#b8d900',
+        limeDeep: '#6b7c00',
         base: '#050505',
         surface: '#F8F8F6',
         border: '#E4E4E0',
         muted: '#6B7280',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+        sans: ['var(--font-sans)', 'system-ui', '-apple-system', 'sans-serif'],
+        mono: ['var(--font-mono)', 'ui-monospace', 'monospace'],
       },
       boxShadow: {
         soft: '0 1px 3px rgba(0,0,0,0.06), 0 8px 32px rgba(0,0,0,0.04)',
         elevated: '0 4px 6px rgba(0,0,0,0.05), 0 20px 60px rgba(0,0,0,0.08)',
         'inner-brand': 'inset 0 0 0 1px rgba(217,255,53,0.3)',
+        glow: '0 0 0 1px rgba(217,255,53,0.4), 0 8px 32px rgba(217,255,53,0.15)',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
